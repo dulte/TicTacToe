@@ -11,7 +11,7 @@ After cloning the repo, just run `python play.py` or `python3 play.py`.
 ### Playing
 As of now, you have the first move. The AI will then make a move, and so on. The program will track who wins. When a game is over you can press *reset* so start over. *reset* can be pressed at any time to reset (when you know you will lose...).
 
-You can change the difficulty of the AI by pressing the *Change AI* button. The AI has a difficulty between 1 and 7. As of now the AI is beatable on all levels... Yet to find the bug :(
+You can change the difficulty of the AI by pressing the *Change AI* button. The AI has a difficulty between 1 and 9. As of now the AI is beatable on all levels... There are at least(!) one winning play found upto level 7. Level 9 does fall for this play.
 
 
 ## Rules
@@ -20,7 +20,7 @@ Each player places three pieces on the board. When a player places the forth pie
 
 ## TODO
 
-- Make the AI actually unbeatable... Known winning series: 6-8-1-3-4-8-0. So far the only know winning play.
+- Make the AI actually unbeatable... 
 - Different colors on pieces for AI and player
 - Change the overall aesthetics
 - Indicate to the player who won (it is now only printed in the consolse)
