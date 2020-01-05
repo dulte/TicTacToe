@@ -9,6 +9,11 @@ import pygame
 WHITE = (255, 255, 255)
 BACKGROUND = (0, 0, 0)
 GREY = (169,169,169)
+BLUE = (0,0,255)
+SKYBLUE = (135,206,235)
+
+RED = (255,0,0)
+SALMON = (250,128,114)
 
 class Button:
     def __init__(self, screen, text, pos, size, color):
@@ -46,7 +51,7 @@ class Game:
 
         self.ai = Minimax()
         self.game = TicTacToe()
-        self.maxRec = 5
+        self.maxRec = 7
         self.wins = [0,0]
 
 
@@ -92,14 +97,16 @@ class Game:
 
 
 
-    def drawCross(self, square):
+    def drawCross(self, square, is_last=False):
         center = self.centers[square]
-        pygame.draw.lines(self.screen, WHITE, True, [(center[0] - 0.25*self.dist, center[1] + 0.25*self.dist), (center[0] + 0.25*self.dist, center[1] - 0.25*self.dist)], 4)
-        pygame.draw.lines(self.screen, WHITE, True, [(center[0] + 0.25*self.dist, center[1] + 0.25*self.dist), (center[0] - 0.25*self.dist, center[1] - 0.25*self.dist)], 4)
+        color = SKYBLUE if is_last else BLUE
+        pygame.draw.lines(self.screen, color, True, [(center[0] - 0.25*self.dist, center[1] + 0.25*self.dist), (center[0] + 0.25*self.dist, center[1] - 0.25*self.dist)], 4)
+        pygame.draw.lines(self.screen, color, True, [(center[0] + 0.25*self.dist, center[1] + 0.25*self.dist), (center[0] - 0.25*self.dist, center[1] - 0.25*self.dist)], 4)
 
-    def drawCircle(self, square):
+    def drawCircle(self, square, is_last=False):
         center = self.centers[square]
-        pygame.draw.circle(self.screen, WHITE, center, int(self.dist*0.33), 3)  
+        color = SALMON if is_last else RED
+        pygame.draw.circle(self.screen, color, center, int(self.dist*0.33), 3)  
 
     
     def drawBoard(self):
@@ -109,9 +116,11 @@ class Game:
         self.drawFrame()
         for index, player in enumerate(board):
             if player == 1:
-                self.drawCross(index)
+                is_last = True if self.game.playerMoves[0][0] == index and len(self.game.playerMoves[0]) == 3  else False
+                self.drawCross(index, is_last)
             elif player == 2:
-                self.drawCircle(index)
+                is_last = True if self.game.playerMoves[1][0] == index and len(self.game.playerMoves[1]) == 3 else False
+                self.drawCircle(index, is_last)
             else:
                 continue
 
@@ -157,9 +166,9 @@ class Game:
             return False, None
 
     def changeAI(self):
-        self.maxRec = (self.maxRec+1)%6 
+        self.maxRec = (self.maxRec+1)%8
         self.maxRec = 1 if self.maxRec == 0 else self.maxRec
-        #self.drawAll()
+        
 
     def reset(self):
         self.game = TicTacToe()
