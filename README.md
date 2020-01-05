@@ -21,5 +21,7 @@ Each player places three pieces on the board. When a player places the forth pie
 ## TODO
 
 - Change color of piece which will disappear next turn
+- Different colors on pieces for AI and player
+- Change the overall aesthetics
 - Indicate to the player who won (it is now only printed in the consolse)
 - More features, if possible...
