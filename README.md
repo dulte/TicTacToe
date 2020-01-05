@@ -20,7 +20,7 @@ Each player places three pieces on the board. When a player places the forth pie
 
 ## TODO
 
-- Make the AI actually unbeatable...
+- Make the AI actually unbeatable... Known winning series: 6-8-1-3-4-8-0. So far the only know winning play.
 - Different colors on pieces for AI and player
 - Change the overall aesthetics
 - Indicate to the player who won (it is now only printed in the consolse)
