@@ -166,7 +166,7 @@ class Game:
             return False, None
 
     def changeAI(self):
-        self.maxRec = (self.maxRec+1)%8
+        self.maxRec = (self.maxRec+1)%10
         self.maxRec = 1 if self.maxRec == 0 else self.maxRec
         
 
@@ -204,8 +204,8 @@ class Game:
                             self.move_taken = True
                                                
             if self.game.playerToMove == 1 and not self.move_taken and not self.game_over:
-                ai_move = self.ai.getMove(self.game, 2, self.maxRec)
-            
+                #ai_move = self.ai.getMove(self.game, 2, self.maxRec)
+                ai_move = self.ai.findBestMove(self.game, 2, self.maxRec)
                 self.game.makeMove(ai_move)
                 #self.drawAll()
            
