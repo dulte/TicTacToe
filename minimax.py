@@ -32,7 +32,7 @@ class Minimax:
         
     """
     def checkMoveV2(self, obj: TicTacToe, player: int, getMax: bool, maxRec: int) -> int:
-        best = -1 if getMax else 1
+        best = -1000 if getMax else 1000
         legal_moves = obj.getLegalMoves()
 
         winner = obj.checkWinner()
@@ -50,6 +50,8 @@ class Minimax:
                         best = min([best,self.checkMoveV2(obj, player,not getMax, maxRec - 1)])
                     
                     obj.unpack(pack)
+            else: 
+                best = 0
             
             return best
 
