@@ -1,5 +1,5 @@
 # TicTacToe
-TicTacToe with AI made with Pygame. 
+Simple TicTacToe game with AI, made with Pygame. 
 
 ## Usage
 ### Requirements 
