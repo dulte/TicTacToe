@@ -73,6 +73,9 @@ class TicTacToe:
 
 
     def makeMove(self,move,checkWinner = False):
+
+        if not self.isMovesIsLegal(move):
+            return False
         
         try:
             if len(self.playerMoves[self.playerToMove]) > 2:
@@ -80,8 +83,8 @@ class TicTacToe:
         except:
             pass
 
-        if not self.isMovesIsLegal(move):
-            return False
+        #if not self.isMovesIsLegal(move):
+        #    return False
 
         self.playerMoves[self.playerToMove].append(int(move))
 

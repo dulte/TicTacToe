@@ -51,7 +51,7 @@ class Game:
 
         self.ai = Minimax()
         self.game = TicTacToe()
-        self.maxRec = 7
+        self.maxRec = 5
         self.wins = [0,0]
 
 
@@ -166,7 +166,7 @@ class Game:
             return False, None
 
     def changeAI(self):
-        self.maxRec = (self.maxRec+1)%10
+        self.maxRec = (self.maxRec+1)%6
         self.maxRec = 1 if self.maxRec == 0 else self.maxRec
         
 
@@ -200,6 +200,7 @@ class Game:
                     is_square, square = self.getSquarePointedAt()
                     if is_square and self.game.playerToMove == 0 and not self.game_over:
                         if self.game.makeMove(square):
+                            print("hei")
                             #self.drawAll()
                             self.move_taken = True
                                                
