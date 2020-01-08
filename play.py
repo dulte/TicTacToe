@@ -166,7 +166,7 @@ class Game:
             return False, None
 
     def changeAI(self):
-        self.maxRec = (self.maxRec+1)%6
+        self.maxRec = (self.maxRec+1)%10
         self.maxRec = 1 if self.maxRec == 0 else self.maxRec
         
 
